@@ -1,0 +1,2221 @@
+/* ==========================================================================
+   1. VARIABLES & CONFIGURACIÓN ROOT (SISTEMA DE DISEÑO BLYNQ - PREMIUM UI)
+   ========================================================================== */
+:root {
+  /* -----------------------------------------
+     A. COLORES DE MARCA
+  ----------------------------------------- */
+  --color-primary: #1d6fe9;       /* Azul rey: BLYNQ texto y cuadrantes fuertes */
+  --color-primary-dark: #124eb3;  /* Hover y estados activos */
+  --color-primary-light: #4b8df2; /* Elementos secundarios de interacción */
+  
+  --color-secondary: #2dbbf0;     /* Cian vibrante: Cuadrantes claros y acentos */
+  --color-secondary-dark: #1da3d6;/* Hover en elementos secundarios */
+  --color-secondary-light: #e6f7ff;/* Fondos ultraclaros (alertas, tags, badges) */
+
+  /* -----------------------------------------
+     B. DEGRADADOS (Gradients Premium)
+  ----------------------------------------- */
+  --gradient-brand: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  --gradient-brand-hover: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-secondary-dark) 100%);
+  --gradient-glass: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.6) 100%);
+  --gradient-fade-light: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+
+  /* -----------------------------------------
+     C. FONDOS Y SUPERFICIES
+  ----------------------------------------- */
+  --color-surface-white: #ffffff;
+  --color-surface-light: #f8fafc;
+  --color-surface-soft: #f1f5f9;
+  --color-surface-dark: #0f172a;
+  --color-surface-glass: rgba(255, 255, 255, 0.75);
+
+  /* -----------------------------------------
+     D. TEXTOS (Jerarquía y Legibilidad)
+  ----------------------------------------- */
+  --color-text-display: #0f172a; /* Títulos H1 gigantes */
+  --color-text-heading: #1e293b; /* Títulos H2, H3, H4 */
+  --color-text-body: #334155;    /* Párrafos nítidos y legibles */
+  --color-text-muted: #64748b;   /* Textos secundarios / placeholders */
+  --color-text-white: #ffffff;   /* Texto sobre fondos oscuros o primarios */
+  --color-text-dark: #0f172a;    /* Alias para consistencia */
+
+  /* -----------------------------------------
+     E. ESTADOS DEL SISTEMA (Feedback)
+  ----------------------------------------- */
+  --color-success: #10b981;
+  --color-success-bg: #ecfdf5;
+  --color-warning: #f59e0b;
+  --color-warning-bg: #fffbeb;
+  --color-danger: #ef4444;
+  --color-danger-bg: #fef2f2;
+
+  /* -----------------------------------------
+     F. BORDES Y LÍNEAS
+  ----------------------------------------- */
+  --color-border: #e2e8f0;        /* Borde general estandarizado */
+  --color-border-subtle: #e2e8f0; /* Divisores e inputs */
+  --color-border-strong: #cbd5e1; /* Hover en inputs/tarjetas */
+  
+  /* -----------------------------------------
+     G. SOMBRAS (Elevación Moderna Tintada)
+  ----------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(29, 111, 233, 0.05);
+  --shadow-sm: 0 2px 4px rgba(29, 111, 233, 0.08);
+  --shadow-md: 0 8px 16px rgba(29, 111, 233, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 20px 24px -4px rgba(29, 111, 233, 0.12), 0 8px 10px -4px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 12px 24px rgba(29, 111, 233, 0.16);
+  --shadow-glow: 0 0 20px rgba(45, 187, 240, 0.4);
+
+  /* -----------------------------------------
+     H. TIPOGRAFÍA CORPORATIVA
+  ----------------------------------------- */
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  
+  /* -----------------------------------------
+     I. SISTEMA DE ESPACIADO
+  ----------------------------------------- */
+  --spacing-xs: 0.25rem;  --space-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem;   --space-sm: 0.5rem;  /* 8px */
+  --spacing-md: 1rem;     --space-md: 1rem;    /* 16px */
+  --spacing-lg: 1.5rem;   --space-lg: 1.5rem;  /* 24px */
+  --spacing-xl: 2rem;     --space-xl: 2rem;    /* 32px */
+  --spacing-2xl: 4rem;    --space-xl-2: 4rem;  /* 64px */
+  --spacing-3xl: 6rem;                         /* 96px */
+
+  /* -----------------------------------------
+     J. RADIOS (Bordes Curvos)
+  ----------------------------------------- */
+  --radius-sm: 0.5rem; /* 8px */
+  --radius-md: 1rem;  /* 16px */
+  --radius-lg: 1.5rem;  /* 24px */
+  --radius-full: 9999px; /* Pastillas / Avatares */
+
+  /* -----------------------------------------
+     K. TRANSICIONES
+  ----------------------------------------- */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* -----------------------------------------
+     L. Z-INDEX
+  ----------------------------------------- */
+  --z-below: -1;
+  --z-normal: 1;
+  --z-sticky: 100;
+  --z-overlay: 900;
+  --z-modal: 1000;
+  --z-toast: 1100;
+}
+
+/* ==========================================================================
+   2. REINICIO Y ESTILOS BASE
+   ========================================================================== */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-text-body);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-surface-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.boxer {
+  width: 90%; 
+  max-width: 1080px; 
+  margin: 0 auto;
+}
+
+/* Headings */
+h1, .h1-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.75rem;
+  line-height: 1.15;
+  color: var(--color-text-display);
+  letter-spacing: -0.03em;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-top: 0;
+  letter-spacing: -0.02em;
+}
+
+h2 { font-size: 2rem; line-height: 1.25; }
+h3 { font-size: 1.35rem; line-height: 1.35; }
+h4 { font-size: 1.1rem; line-height: 1.4; }
+
+p, span, label, input {
+  font-family: var(--font-main);
+}
+
+p {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--color-text-body);
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+/* ==========================================================================
+   3. SISTEMA DE GRID UNIFICADO
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   A. MOBILE FIRST (0px - 766px) (4 Columnas Base)
+   -------------------------------------------------------------------------- */
+.grid, .md-grid, .lg-grid {
+  display: grid;
+  gap: 1rem .5rem;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+[class*="col"] {
+  position: relative;
+}
+
+.col, .col-4 { grid-column: span 4 / span 4; }
+.col-1 { grid-column: span 1 / span 1; }
+.col-2 { grid-column: span 2 / span 2; }
+.col-3 { grid-column: span 3 / span 3; }
+
+.col-st-1 { grid-column-start: 1; }
+.col-st-2 { grid-column-start: 2; }
+.col-st-3 { grid-column-start: 3; }
+.col-st-4 { grid-column-start: 4; }
+
+.col-ed-2 { grid-column-end: 2; }
+.col-ed-3 { grid-column-end: 3; }
+.col-ed-4 { grid-column-end: 4; }
+.col-ed-5 { grid-column-end: 5; }
+
+.row-1 { grid-row: span 1 / span 1; }
+.row-2 { grid-row: span 2 / span 2; }
+.row-3 { grid-row: span 3 / span 3; }
+.row-4 { grid-row: span 4 / span 4; }
+
+/* --------------------------------------------------------------------------
+   B. TABLET (767px - 1019px) (12 Columnas)
+   -------------------------------------------------------------------------- */
+@media only screen and (min-width: 767px) {
+  .grid, .md-grid { 
+    display: grid; 
+    grid-template-columns: repeat(12, 1fr); 
+    gap: 1rem .5rem; 
+    grid-auto-flow: row; 
+  }
+  
+  .col, .col-md-12 { grid-column: span 12 / span 12; }
+  .col-md-1 { grid-column: span 1 / span 1; }
+  .col-md-2 { grid-column: span 2 / span 2; }
+  .col-md-3 { grid-column: span 3 / span 3; }
+  .col-md-4 { grid-column: span 4 / span 4; }
+  .col-md-5 { grid-column: span 5 / span 5; }
+  .col-md-6 { grid-column: span 6 / span 6; }
+  .col-md-7 { grid-column: span 7 / span 7; }
+  .col-md-8 { grid-column: span 8 / span 8; }
+  .col-md-9 { grid-column: span 9 / span 9; }
+  .col-md-10 { grid-column: span 10 / span 10; }
+  .col-md-11 { grid-column: span 11 / span 11; }
+}
+
+/* --------------------------------------------------------------------------
+   C. DESKTOP (1020px+) (12 Columnas)
+   -------------------------------------------------------------------------- */
+@media only screen and (min-width: 1020px) {
+  .grid, .lg-grid { 
+    display: grid; 
+    grid-template-columns: repeat(12, 1fr); 
+    gap: 1.5rem 1rem; 
+    grid-auto-flow: row; 
+  }
+  
+  .grid--columns-15 { grid-template-columns: repeat(15, 1fr) !important; }
+  .grid--columns-15 .col-15 { grid-column: span 15 / span 15; }
+  
+  .col, .col-lg-12 { grid-column: span 12 / span 12; }
+  .col-lg-1 { grid-column: span 1 / span 1; }
+  .col-lg-2 { grid-column: span 2 / span 2; }
+  .col-lg-3 { grid-column: span 3 / span 3; }
+  .col-lg-4 { grid-column: span 4 / span 4; }
+  .col-lg-5 { grid-column: span 5 / span 5; }
+  .col-lg-6 { grid-column: span 6 / span 6; }
+  .col-lg-7 { grid-column: span 7 / span 7; }
+  .col-lg-8 { grid-column: span 8 / span 8; }
+  .col-lg-9 { grid-column: span 9 / span 9; }
+  .col-lg-10 { grid-column: span 10 / span 10; }
+  .col-lg-11 { grid-column: span 11 / span 11; }
+  .col-lg-13 { grid-column: span 13 / span 13; }
+}
+
+/* --------------------------------------------------------------------------
+   D. GRID FLUIDO (Módulos / Tarjetas / Catálogos)
+   -------------------------------------------------------------------------- */
+.grid-fluid-XL {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+}
+
+
+.grid-fluid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-fluid-sm {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+/* ==========================================================================
+   4. CLASES UTILITARIAS INDISPENSABLES
+   ========================================================================== */
+/* Fondos */
+.d-flex { 
+  display: flex; 
+}
+
+.d-flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-uno {
+  flex: 1;
+}
+
+.flex-cero {
+  flex: 0;
+  flex-grow: 0;
+}
+
+.bg-white { background-color: var(--color-surface-white); }
+.bg-light { background-color: var(--color-surface-light); }
+.bg-soft  { background-color: var(--color-surface-soft); }
+.bg-dark  { background-color: var(--color-surface-dark); color: var(--color-text-white); }
+
+.bg-gradient-brand { background: var(--gradient-brand); color: var(--color-text-white); }
+.bg-gradient-fade  { background: var(--gradient-fade-light); }
+
+/* Espaciados / Paddings */
+.py-sm { padding-top: var(--space-sm); padding-bottom: var(--space-sm); }
+.py-md { padding-top: var(--space-md); padding-bottom: var(--space-md); }
+.py-lg { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
+.py-section { padding-top: var(--spacing-2xl); padding-bottom: var(--spacing-2xl); }
+
+/* Flexbox & Layout */
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.items-center, .align-items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+
+.gap-sm { gap: var(--space-xs); }
+.gap-md { gap: var(--space-sm); }
+.gap-lg { gap: var(--space-md); }
+
+/* Texto Utilitario */
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+.text-primary { color: var(--color-primary); }
+.text-white   { color: var(--color-text-white); }
+.text-muted   { color: var(--color-text-muted); }
+.font-bold    { font-weight: 700; }
+
+/* Dimensiones */
+.w-full { width: 100%; }
+.img-fluid { max-width: 100%; height: auto; display: block; }
+
+/* ==========================================================================
+   5. COMPONENTES DE INTERFAZ
+   ========================================================================== */
+
+/* Botones principales */
+.btn, .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-brand);
+  color: #ffffff !important;
+  padding: 12px 28px;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  border: none;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.btn:hover, .btn-primary:hover {
+  background: var(--gradient-brand-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Botón Secundario / Outline */
+.btn-alt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-primary);
+  padding: 12px 28px;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-primary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.btn-alt:hover {
+  background-color: var(--color-secondary-light);
+  border-color: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+/* Badge Promocional Armonizado */
+.promo-badge {
+  display: inline-block;
+  background-color: var(--color-secondary-light);
+  color: var(--color-primary-dark);
+  border: 1px solid rgba(45, 187, 240, 0.4);
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 6px 18px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.25rem;
+}
+
+/* Tarjetas */
+.card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+/* Formularios */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(29, 111, 233, 0.15);
+}
+
+/* ==========================================================================
+   HEADER / NAVEGACIÓN PREMIUM
+   ========================================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 12px 0;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.05));
+}
+
+header .boxer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  display: block;
+  height: auto;
+  max-height: 102px;
+  object-fit: contain;
+}
+
+/* Navegación Desktop */
+header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li a {
+  position: relative;
+  font-family: var(--font-main, inherit);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-heading, #0f172a);
+  text-decoration: none;
+  padding: 6px 0;
+  transition: color 0.2s ease;
+}
+
+header nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--gradient-brand, #0070f3);
+  border-radius: 99px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Botón Contacto Header Desktop */
+header .header-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-secondary-light, #e0f2fe);
+  color: var(--color-primary-dark, #0369a1) !important;
+  border: 1px solid rgba(45, 187, 240, 0.35);
+  padding: 9px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 99px;
+  transition: all 0.2s ease;
+}
+
+/* Ícono de WhatsApp en el botón del header (verde oficial de la marca) */
+header .header-contact a svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: #25D366;
+}
+
+/* Botón Hamburguesa */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-text-heading, #0f172a);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle.is-active span:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+.menu-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.is-active span:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+@media (min-width: 1020px) {
+  header nav.nav-menu {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE MOBILE (< 992px)
+   ========================================================================== */
+@media (max-width: 991px) {
+  
+  /* Asegurar espacio entre logo y hamburguesa dentro del .boxer */
+  header .boxer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Drawer Lateral Fijo */
+  header nav.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    height: 100dvh; /* Para navegadores móviles modernos */
+    background-color: #ffffff;
+    padding: 90px 24px 40px;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    
+    /* Ocultar visibilidad para eliminar el scroll lateral cuando esté cerrado */
+    visibility: hidden;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                visibility 0.35s linear;
+  }
+
+  /* Estado Abierto */
+  header nav.nav-menu.is-open {
+    right: 0;
+    visibility: visible;
+  }
+
+  /* Estilos internos del menú */
+  header nav.nav-menu ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  header nav.nav-menu ul li {
+    width: 100%;
+  }
+
+  header nav.nav-menu ul li a {
+    display: block;
+    font-size: 1.1rem;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  header nav.nav-menu ul li a::after {
+    display: none;
+  }
+
+  /* Botón de contacto dentro del menú desplegable */
+  header nav.nav-menu .header-contact {
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  header nav.nav-menu .header-contact a {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+}
+
+
+/* ==========================================================================
+   FOOTER CORPORATIVO (ESTILO PREMIUM DARK)
+   ========================================================================== */
+
+#main-footer {
+  background-color: var(--color-surface-dark); /* #0f172a */
+  color: #94a3b8; /* Texto gris suave accesible sobre oscuro */
+  padding-top: 4.5rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Grilla del Footer */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 1.2fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+/* Columna 1: Branding y Propietaria */
+.footer-logo {
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.footer-logo span {
+  color: var(--color-secondary);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+
+}
+
+/* Headings del Footer */
+.footer-heading {
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+/* Listas de Enlaces */
+.footer-links,
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.65rem;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--transition-fast), padding-left var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--color-secondary);
+  padding-left: 4px;
+}
+
+/* Información de Contacto con Íconos */
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.9rem;
+}
+
+.footer-contact svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+.footer-contact a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.footer-contact a:hover {
+  color: var(--color-secondary);
+}
+
+.contact-location span {
+  color: #94a3b8;
+}
+
+/* Tarjeta / Badge de Confianza */
+.footer-trust-box {
+  background: rgba(45, 187, 240, 0.08);
+  border: 1px solid rgba(45, 187, 240, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.trust-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-trust-box h2 {
+  color: #ffffff;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 0.35rem;
+}
+
+.footer-trust-box p {
+  color: #94a3b8;
+  font-size: 0.825rem;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   BARRA INFERIOR (SUB-FOOTER)
+   -------------------------------------------------------------------------- */
+.footer-bottom {
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.825rem;
+  color: #64748b;
+}
+
+.footer-bottom p {
+  margin-bottom: 0;
+  color: #64748b;
+  font-size: 0.825rem;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-legal a {
+  color: #64748b;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-legal a:hover {
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN (Móviles y Tablets)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1019px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: center;
+  }
+}
+
+
+
+
+/* ==========================================================================
+   7. HERO SECTION (IMAGEN DE FONDO COMPLETA INVERTIDA)
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  min-height: 560px;
+  padding: 5rem 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--color-surface-dark); /* Color base de respaldo */
+}
+
+/* Garantiza que el contenido textual y controles se ubiquen sobre las capas de fondo */
+.hero-section .boxer {
+  position: relative;
+  z-index: 3;
+}
+
+/* A. CAPA 1: Imagen de fondo volteada (Espejo Horizontal: Luz a la derecha) */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../banner-hero-1.webp');
+  background-size: cover;
+  background-position: center;
+  transform: scaleX(-1); /* Gira la imagen horizontalmente */
+  z-index: 1;
+}
+
+/* B. CAPA 2: Máscara / Degradado en Desktop para lectura óptima a la izquierda */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(255, 255, 255, 0.90) 45%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  z-index: 2;
+  transition: background var(--transition-normal);
+}
+
+/* --- ESTILOS DE TEXTO DEL HERO --- */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-content h1 {
+  font-size: 2.6rem;
+  line-height: 1.15;
+  font-weight: 800;
+  color: var(--color-text-display);
+  margin-bottom: 1rem;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-body);
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+/* Botones y Contacto */
+.hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.phone-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.phone-link:hover {
+  color: var(--color-primary);
+}
+
+/* Badges de Confianza */
+.hero-trust-badges {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+  width: 100%;
+}
+
+.trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-body);
+}
+
+.trust-item .check-icon {
+  color: var(--color-success);
+  font-style: normal;
+  font-weight: bold;
+}
+
+
+/* --------------------------------------------------------------------------
+   ADAPTACIÓN PARA PANTALLAS MÓVILES Y TABLETS (< 1020px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1019px) {
+  .hero-section {
+    padding: 3.5rem 0;
+    min-height: auto;
+  }
+
+  /* 1. Oculta la columna derecha en móviles */
+  .hero-media-wrapper {
+    display: none !important;
+  }
+
+  /* 2. Hace la capa del fondo casi opaca para asegurar contraste y legibilidad */
+  .hero-section::after {
+    background: rgba(255, 255, 255, 0.94);
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-trust-badges {
+    flex-wrap: wrap;
+  }
+}
+
+/* ==========================================================================
+   SECCIÓN 2: TRUST & CERTIFICATIONS
+   ========================================================================== */
+#certifications {
+  background: var(--color-surface-white);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  z-index: 2;
+}
+
+.py-section-sm {
+  padding: 4.5rem 0;
+}
+
+.certifications-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+/* Informacion de la Izquierda */
+.certifications-info h2 {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Lista de Chequeo de Confianza */
+.trust-check-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.trust-check-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-heading);
+  font-size: 0.95rem;
+}
+
+.trust-check-item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary);
+  background: var(--color-secondary-light);
+  padding: 3px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+/* Grilla de Tarjetas de Insignias (Derecha) */
+.certifications-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cert-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.cert-card:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 10px 25px rgba(30, 58, 138, 0.08);
+  transform: translateY(-3px);
+}
+
+.cert-img-container {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-badge-img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+}
+
+.cert-details h3 {
+  font-size: 1.15rem;
+  line-height: 1.4;
+  margin-bottom: 0.35rem;
+  color: var(--color-text-heading);
+}
+
+.cert-details p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+/* En desktop las tarjetas van a la izquierda aunque en el HTML vayan después del texto */
+@media (min-width: 992px) {
+  .certifications-grid {
+    order: -1;
+  }
+}
+
+@media (max-width: 991px) {
+  .certifications-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .certifications-info h2 {
+    font-size: 1.85rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .cert-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .cert-img-container {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+
+/* ==========================================================================
+   SECCIÓN 2: CLIENT LOGOS & MARCAS (TIENDA / CONFIANZA)
+   Carrusel infinito con velocidad constante.
+   La duración de la animación (--carousel-duration) la calcula el JS
+   según el ancho real del track y el atributo data-speed (px/s).
+   ========================================================================== */
+
+#client-logos {
+  padding: 3.5rem 0;
+  background-color: #e8f1fd;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* Título centrado arriba */
+#client-logos h2 {
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Contenedor del carrusel: recorta el track
+   -------------------------------------------------------------------------- */
+#client-logos .carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 6px 0; /* evita recortar el translateY del hover */
+}
+
+/* Fallback sin JS: fila/grilla centrada (diseño original) */
+#client-logos .carousel-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem 3.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Modo carrusel (la clase .is-ready la agrega el JS)
+   -------------------------------------------------------------------------- */
+
+/* Bordes difuminados a izquierda y derecha */
+#client-logos .carousel.is-ready {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+#client-logos .carousel.is-ready .carousel-track {
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 0; /* el espaciado va como padding en .logo-item para que el loop sea exacto */
+  width: max-content;
+  animation: logos-scroll var(--carousel-duration, 30s) linear infinite;
+  will-change: transform;
+}
+
+#client-logos .carousel.is-ready .logo-item {
+  flex: 0 0 auto;
+  padding: 0 1.75rem;
+}
+
+/* Pausa al pasar el mouse o al enfocar con teclado */
+#client-logos .carousel.is-ready:hover .carousel-track,
+#client-logos .carousel.is-ready:focus-within .carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes logos-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+/* --------------------------------------------------------------------------
+   Logos individuales
+   -------------------------------------------------------------------------- */
+#client-logos .logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#client-logos .carousel img {
+  max-height: 42px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: filter var(--transition-normal), opacity var(--transition-normal), transform var(--transition-fast);
+}
+
+#client-logos .carousel img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Opcional: badge ("Caso de Éxito") debajo del logo */
+.badge-case {
+  display: inline-block;
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  background-color: #dbeafe;
+  padding: 3px 12px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Adaptabilidad Mobile
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  #client-logos {
+    padding: 2.5rem 0;
+  }
+
+  #client-logos .carousel-track {
+    gap: 1.5rem 2rem;
+  }
+
+  #client-logos .carousel.is-ready .logo-item {
+    padding: 0 1rem;
+  }
+
+  #client-logos .carousel img {
+    max-height: 32px;
+    max-width: 110px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accesibilidad: sin animación si el usuario lo prefiere.
+   Va al final para que gane sobre las reglas anteriores.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  #client-logos .carousel.is-ready {
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+
+  #client-logos .carousel.is-ready .carousel-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    gap: 2.5rem 3.5rem;
+  }
+
+  #client-logos .carousel.is-ready .logo-item {
+    padding: 0;
+  }
+
+  /* Los logos clonados por el JS no se muestran */
+  #client-logos .carousel .carousel-track [data-clone] {
+    display: none;
+  }
+}
+
+
+/* ==========================================================================
+   SECCIÓN 3: SERVICES & GRID DE TARJETAS
+   ========================================================================== 
+#services {
+  ********* Fondeo con degradado: Inicia en blanco puro y baja hacia un tono azula/gris suave *********
+  background: linear-gradient(180deg, #ffffff 0%, #e8f1fd 100%);
+}   
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-subtitle {
+  max-width: 580px;
+  margin: 0.5rem auto 0;
+  color: var(--color-text-muted);
+}
+
+******* Grilla de Servicios (3 Columnas en Desktop) *******
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+******** Estilo Individual de Tarjetas ******
+.service-card {
+  position: relative;
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+
+.service-card:hover {
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-5px);
+}
+
+****** Íconos de Servicio *****
+.service-icon,
+.recurring-icon {
+  width: 52px;
+  height: 52px;
+  background-color: var(--color-secondary-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.service-icon {
+  margin-bottom: 1.25rem;
+}
+
+.service-icon svg,
+.recurring-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.service-card:hover .service-icon,
+.recurring-banner:hover .recurring-icon {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.service-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+******* Enlace dentro de la tarjeta ********
+.service-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: gap var(--transition-fast);
+}
+
+.service-link:hover {
+  gap: 0.6rem;
+  color: var(--color-primary-dark);
+}
+
+******** Tarjeta Destacada / Popular *****
+.service-card.featured-service {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.popular-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--gradient-brand);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.05em;
+}
+
+ --------------------------------------------------------------------------
+   BANNER RECURRENTE (Servicio 7 - Estilo Unificado)
+   -------------------------------------------------------------------------- 
+.recurring-banner {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all var(--transition-normal);
+}
+
+.recurring-banner:hover {
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.recurring-text h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.35rem;
+  color: var(--color-text-heading);
+}
+
+.recurring-text p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+ --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- 
+@media (max-width: 1019px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .recurring-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+} */
+
+/* ==========================================================================
+   SECCIÓN 3: SERVICES & BENTO BOX GRID
+   ========================================================================== */
+#services {
+  background: linear-gradient(180deg, #ffffff 0%, #e8f1fd 100%);
+}   
+
+#services .section-header {
+  margin-bottom: 3rem;
+}
+
+#services .section-subtitle {
+  max-width: 580px;
+  margin: 0.5rem auto 0;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   GRILLA BENTO BOX (Tetris Inteligente)
+   -------------------------------------------------------------------------- */
+.services-grid.bento-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(220px, auto); 
+  grid-auto-flow: row dense; /* Empuja las tarjetas pequeñas para tapar huecos */
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Modificadores de Tamaño Bento */
+.bento-wide {
+  grid-column: span 2;
+}
+
+.bento-tall {
+  grid-row: span 2;
+}
+
+/* --------------------------------------------------------------------------
+   ESTILO BASE DE LAS TARJETAS BENTO
+   -------------------------------------------------------------------------- */
+.service-card {
+  position: relative;
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border);
+  border-color: var(--color-secondary);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  overflow: hidden;
+}
+
+.service-card-2 {
+    border-radius: var(--radius-lg);
+    padding: 2.25rem;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+    overflow: hidden;
+}
+
+.service-card:hover {
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
+}
+
+.service-card-2:hover {
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
+}
+
+/* Íconos Originales Limpios */
+.service-icon,
+.recurring-icon {
+  width: 52px;
+  height: 52px;
+  background-color: var(--color-secondary-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.service-icon {
+  margin-bottom: 1.25rem;
+}
+
+.service-icon svg,
+.recurring-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.service-card:hover .service-icon,
+.recurring-banner:hover .recurring-icon {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+/* Tipografía */
+.service-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Enlace dentro de la tarjeta */
+.service-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: gap var(--transition-fast);
+}
+
+.service-link:hover {
+  gap: 0.6rem;
+  color: var(--color-primary-dark);
+}
+
+/* --------------------------------------------------------------------------
+   TARJETAS DESTACADAS (El Factor WOW sin etiquetas)
+   -------------------------------------------------------------------------- */
+.service-card.bento-featured, .service-card-2.bento-featured {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1e3a8a 100%);
+  border: none;
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.15);
+}
+
+.service-card.bento-featured:hover, .service-card-2.bento-featured:hover {
+  box-shadow: 0 15px 30px rgba(30, 58, 138, 0.3);
+}
+
+/* Invertir colores del texto en destacadas */
+.bento-featured h3, 
+.bento-featured p {
+  color: #ffffff;
+}
+
+.bento-featured p {
+  opacity: 0.85; 
+}
+
+.bento-featured .service-link {
+  color: #ffffff;
+}
+
+.bento-featured .service-link:hover {
+  color: #e0e7ff;
+}
+
+.bento-featured .service-icon {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.bento-featured:hover .service-icon {
+  background: #ffffff;
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   BANNER RECURRENTE (Servicio 7)
+   -------------------------------------------------------------------------- */
+.recurring-banner {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border);
+  border-color: var(--color-secondary);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all var(--transition-normal);
+}
+
+.recurring-banner:hover {
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-3px);
+}
+
+.recurring-text h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.35rem;
+  color: var(--color-text-heading);
+}
+
+.recurring-text p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+@media (max-width: 1019px) {
+  .services-grid.bento-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .bento-wide {
+    grid-column: span 2; 
+  }
+
+  /* Move-In pasa a ancho completo con la imagen a la derecha, para no estirar a su vecina */
+  .bento-tall {
+    grid-row: span 1;
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 220px);
+    column-gap: 2rem;
+    align-content: center;
+  }
+
+  .bento-tall > * {
+    grid-column: 1;
+  }
+
+  .bento-tall .featured-service-img {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+    max-height: 180px;
+    margin: 0;
+  }
+
+  /* Residential vuelve a 1 columna para que la grilla quede sin huecos */
+  .services-grid.bento-layout .service-card.bento-wide {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .services-grid.bento-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .bento-wide,
+  .bento-tall {
+    grid-column: span 1;
+  }
+
+  .bento-tall {
+    display: flex;
+  }
+
+  .bento-tall .featured-service-img {
+    margin: 0 0 1rem;
+  }
+
+  .imagen-contenedor img {
+    max-height: 140px;
+  }
+  
+  .service-card {
+    padding: 1.75rem;
+  }
+  
+  .recurring-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   IMÁGENES PROTAGÓNICAS EN TARJETAS DESTACADAS
+   -------------------------------------------------------------------------- */
+.featured-service-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  /* Elevación sutil para integrar la imagen sobre el fondo azul */
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.25));
+  transition: transform var(--transition-normal), filter var(--transition-normal);
+}
+
+/* En la tarjeta alta la imagen ocupa el espacio libre entre el texto y el enlace */
+.bento-tall .featured-service-img {
+  min-height: 0;
+  max-height: 260px;
+  margin: auto 0 1.5rem;
+}
+
+/* Efecto de escala al hacer hover en la tarjeta */
+.service-card.bento-featured:hover .featured-service-img {
+  transform: translateY(-4px) scale(1.05);
+  filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.35));
+}
+
+/* Ajustes Responsivos para Pantallas Pequeñas */
+@media (max-width: 767px) {
+  .featured-service-img {
+    max-width: 100px; /* Tamaño adaptado a móviles */
+    margin-bottom: 1rem;
+  }
+}
+
+.imagen-contenedor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Alto limitado: la imagen no debe estirar la fila del bento (y con ella la tarjeta vecina) */
+.imagen-contenedor img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 3;
+}
+
+.imagen-contenedor::after {
+  content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 1) 0%, /* Centro: Blanco Puro */ rgba(255, 255, 255, 0.3) 30%, /* Suave desvanecimiento */ rgba(255, 255, 255, 0) 46% /* Bordes: Totalmente Transparente */);
+    pointer-events: none;
+}
+
+
+
+
+/* ==========================================================================
+   SECCIÓN 4: CALL TO ACTION #1 (BANER PROMOCIONAL DE ANCHO COMPLETO)
+   ========================================================================== */
+
+#cta-banner-1 {
+  position: relative;
+  background: var(--gradient-brand);
+  color: #ffffff;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Efecto de resplandor radial suave en el fondo para dar profundidad */
+#cta-banner-1::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 65%);
+  pointer-events: none;
+}
+
+#cta-banner-1 .boxer {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Insignia / Badge de Promoción */
+.cta-badge {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.775rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  margin-bottom: 1.25rem;
+}
+
+/* Título de la Oferta */
+#cta-banner-1 h2 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  line-height: 1.15;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+/* Descripción */
+#cta-banner-1 p {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Botón Blanco Prominente */
+#cta-banner-1 .btn-white {
+  background: #ffffff !important;
+  color: var(--color-primary-dark) !important;
+  padding: 14px 36px;
+  font-size: 1rem;
+  font-weight: 800;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+#cta-banner-1 .btn-white:hover {
+  background: var(--color-surface-soft) !important;
+  color: var(--color-primary) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Contenedor de Botón y Nota */
+.cta-action-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Nota Aclaratoria Inferior */
+.cta-note {
+  font-size: 0.825rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN (Móviles y Tablets)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  #cta-banner-1 {
+    padding: 3.75rem 0;
+  }
+
+  #cta-banner-1 h2 {
+    font-size: 1.85rem;
+  }
+
+  #cta-banner-1 p {
+    font-size: 1rem;
+  }
+
+  #cta-banner-1 .btn-white {
+    width: 100%;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   SECTION 5: TESTIMONIALS (Custom Card Style)
+   -------------------------------------------------------------------------- */
+.testimonials-section {
+    background-color: #ffffff; /* Fondo general blanco */
+    padding: 80px 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.testimonial-item {
+    position: relative;
+    padding-top: 35px; /* Espacio para que el avatar resalte arriba */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* El recuadro gris sutil que queda Por Debajo del texto */
+.testimonial-box {
+    position: relative;
+    margin-top: -35px;
+    padding: 55px 25px 30px 25px;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+    background: #64748b2b;
+    border-radius: 16px;
+    min-height: 386px;
+}
+
+/* Fondo gris sutil (Capas / Pseudoelemento) */
+.testimonial-box::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 25%;
+    right: 25%;
+    bottom: 5%;
+    background-color: #e9f1fda3;
+    border-radius: 12px;
+    z-index: -1;
+}
+
+.quote-mark {
+    display: block;
+    font-size: 45px;
+    color: #94a3b8;
+    line-height: 0.7;
+    margin-bottom: 10px;
+}
+
+.testimonial-text {
+    font-size: 0.95rem;
+    color: #334155;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.testimonial-author {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding-top: 15px;
+}
+
+.author-role {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin-bottom: 4px;
+}
+
+.author-name {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    color: #124eb3;
+    margin: 0;
+}
+
+.service-card .flex-uno {
+  flex: 1;
+}
+
+.service-card .flex-cero {
+  flex: 0;
+  flex-grow: 0;
+}
+
+/* ==========================================================================
+   SECCIÓN 6: PHOTO GALLERY (MEDIUM DARK GLASSMORPHISM)
+   ========================================================================== */
+
+#gallery {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+}
+
+/* A. CAPA DE IMAGEN DESENFOCADA */
+#gallery::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-image: url('../banner-galeria.webp');
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px);
+  z-index: 1;
+}
+
+/* B. CAPA DE ATENUACIÓN (Degradado que termina claro abajo) */
+#gallery::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(245, 247, 249, 0.95) 0%, rgba(51, 65, 85, 0.6) 75%, #0f172a9e 100%);
+  z-index: 2;
+}
+
+/* Asegurar que el contenido flote sobre el fondo */
+#gallery .boxer {
+  position: relative;
+  z-index: 3;
+}
+
+/* Textos oscuros: la parte superior del degradado es clara */
+#gallery .section-header h2 {
+  color: var(--color-text-heading);
+}
+
+#gallery .section-header .section-subtitle {
+  color: var(--color-text-body);
+}
+
+/* --------------------------------------------------------------------------
+   GRILLA Y TARJETAS FOTOGRÁFICAS
+   -------------------------------------------------------------------------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Contenedor de la Imagen */
+.gallery-card {
+  position: relative;
+  height: 240px; 
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Estilo de la Imagen */
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+/* Foto vertical: se encuadra cerca del borde superior para no cortar a la persona */
+.gallery-card--portrait img {
+  object-position: center 6%;
+}
+
+/* Efecto de Zoom interior al hacer hover */
+.gallery-card:hover img {
+  transform: scale(1.08); 
+}
+
+/* --------------------------------------------------------------------------
+   ADAPTACIÓN MOBILE (Ocultar desde el 4to elemento)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1019px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Con 2 columnas, si la última foto queda sola ocupa todo el ancho */
+  .gallery-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .gallery-card {
+    height: 200px;
+  }
+
+  .gallery-card:nth-child(n+4) {
+    display: none;
+  }
+}

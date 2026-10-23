@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"/Users/melquiescobar/Downloads/Clientes/blynq/BR-plataforma-2025.module/_locales\")"
+    ],
+    "additionalDirectories": [
+      "/Users/melquiescobar/Downloads/Clientes/blynq/BR-plataforma-2025.module"
+    ]
+  }
+}
