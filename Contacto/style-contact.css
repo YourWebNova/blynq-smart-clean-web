@@ -959,6 +959,13 @@ header .header-contact a svg {
   color: var(--color-secondary);
 }
 
+.footer-logo img {
+  display: block;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+}
+
 .footer-tagline {
   font-size: 0.9rem;
   color: #94a3b8;
