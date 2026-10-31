@@ -2247,6 +2247,11 @@ header .header-contact a svg {
   object-position: center 36%;
 }
 
+/* Foto vertical del duo con plumero: encuadre a la altura de las caras */
+.gallery-card--duo img {
+  object-position: center 32%;
+}
+
 /* Efecto de Zoom interior al hacer hover */
 .gallery-card:hover img {
   transform: scale(1.08); 
