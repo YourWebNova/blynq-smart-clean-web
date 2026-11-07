@@ -114,9 +114,13 @@
 /* ==========================================================================
    2. REINICIO Y ESTILOS BASE
    ========================================================================== */
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
+html {
+    max-width: 100%;
+}
+
+body {
+    overflow-x: clip;
+    max-width: 100%;
 }
 
 *, *::before, *::after {
@@ -484,31 +488,36 @@ header .boxer {
 }
 
 header .logo {
-  display: flex;
   align-items: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  width: 152px;
 }
 
 header .logo img {
   display: block;
   height: auto;
-  max-height: 102px;
+  max-width: 114px;
   object-fit: contain;
+  transform: scale(1.4);
 }
 
 /* Navegación Desktop */
 header nav ul {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 68px;
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-right: 24px;
 }
 
 header nav ul li a {
   position: relative;
   font-family: var(--font-main, inherit);
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--color-text-heading, #0f172a);
   text-decoration: none;
@@ -930,7 +939,7 @@ header .header-contact a svg {
   background: linear-gradient(
     90deg, 
     rgba(255, 255, 255, 0.96) 0%,
-    rgba(255, 255, 255, 0.90) 45%,
+    rgba(255, 255, 255, 0.90) 32%,
     rgba(255, 255, 255, 0) 70%
   );
   z-index: 2;
@@ -1037,6 +1046,81 @@ header .header-contact a svg {
     flex-wrap: wrap;
   }
 }
+
+/* MOSTRAR ÚNICAMENTE EN DESKTOP (Min-width: 992px) */
+@media (min-width: 992px) {
+  .hero-media-wrapper {
+    position: relative;
+    min-height: 450px;
+  }
+
+  .hero-sparkle-bg {
+    display: flex;
+    position: absolute;
+    color: #ffffff; /* Blanco puro */
+    pointer-events: none;
+    z-index: 2;
+    animation: whiteGlintDesktop 3.5s infinite ease-in-out;
+    /* Añadimos un fondo de luz difusa sutil para destacar sobre la foto */
+    background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+  }
+
+  .hero-sparkle-bg svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Tamaños aumentados para mayor visibilidad */
+  .sparkle-1 {
+    top: 22%;
+    right: 28%;
+    width: 44px;
+    height: 44px;
+    animation-delay: 0s;
+  }
+
+  .sparkle-2 {
+    top: 48%;
+    right: 42%;
+    width: 36px;
+    height: 36px;
+    animation-delay: 1.1s;
+  }
+
+  .sparkle-3 {
+    top: 68%;
+    right: 22%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 2.2s;
+  }
+}
+
+/* Animación con destello de luz mucho más intenso */
+@keyframes whiteGlintDesktop {
+  0% {
+    opacity: 0.1;
+    transform: scale(0.4) rotate(0deg);
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.35) rotate(45deg);
+    /* Resplandor blanco múltiple súper brillante */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1)) 
+            drop-shadow(0 0 20px rgba(255, 255, 255, 0.9)) 
+            drop-shadow(0 0 35px rgba(45, 187, 240, 0.6));
+  }
+  100% {
+    opacity: 0.1;
+    transform: scale(0.4) rotate(90deg);
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+  }
+}
+
+
+
 
 /* ==========================================================================
    SECCIÓN 2: TRUST & CERTIFICATIONS
@@ -2084,7 +2168,7 @@ header .header-contact a svg {
     z-index: 1;
     background: #64748b2b;
     border-radius: 16px;
-    min-height: 386px;
+    min-height: 406px;
 }
 
 /* Fondo gris sutil (Capas / Pseudoelemento) */
@@ -2124,12 +2208,15 @@ header .header-contact a svg {
 
 .author-role {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.625rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #64748b;
     margin-bottom: 4px;
 }
+.author-role storng {
+  font-size: 0.75rem;
+}  
 
 .author-name {
     font-family: var(--font-heading);

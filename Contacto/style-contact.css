@@ -114,9 +114,13 @@
 /* ==========================================================================
    2. REINICIO Y ESTILOS BASE
    ========================================================================== */
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
+html {
+    max-width: 100%;
+}
+
+body {
+    overflow-x: clip;
+    max-width: 100%;
 }
 
 *, *::before, *::after {
@@ -484,31 +488,36 @@ header .boxer {
 }
 
 header .logo {
-  display: flex;
   align-items: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  width: 152px;
 }
 
 header .logo img {
   display: block;
   height: auto;
-  max-height: 102px;
+  max-width: 114px;
   object-fit: contain;
+  transform: scale(1.4);
 }
 
 /* Navegación Desktop */
 header nav ul {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 68px;
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-right: 24px;
 }
 
 header nav ul li a {
   position: relative;
   font-family: var(--font-main, inherit);
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--color-text-heading, #0f172a);
   text-decoration: none;

@@ -8,10 +8,10 @@
     <link rel="icon" type="image/svg+xml" href="BLYNQ%20LLC%20SVG.svg">
     <link rel="apple-touch-icon" href="Blynq-logo.jpg">
 
-    <!-- Open Graph: og:url y og:image deben ser URLs absolutas cuando el sitio tenga dominio -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="BLYNQ Smart Clean">
-    <meta property="og:title" content="BLYNQ &quot;SMART CLEAN&quot; - Professional Cleaning Services">
+    <meta property="og:title" content="BLYNQ &quot;SMART CLEAN&quot; Professional Cleaning Services">
     <meta property="og:description" content="Professional cleaning designed to leave your spaces fresh, bright, and spotless. 15% off your first service.">
     <meta property="og:image" content="banner-hero-1.webp">
     <meta property="og:image:width" content="1280">
@@ -22,6 +22,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Services/style-services.css">
+
+    <style>
+        /* Estilo para el botón selector de idioma */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-switcher button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background-color: transparent;
+            color: var(--color-primary-dark, #0369a1);
+            border: 1px solid rgba(45, 187, 240, 0.35);
+            padding: 8px 16px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border-radius: 99px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-switcher button:hover {
+            background-color: var(--color-secondary-light, #e0f2fe);
+            border-color: var(--color-secondary, #2dbbf0);
+            transform: translateY(-1px);
+        }
+    </style>
 </head>
 
 <body>
@@ -30,7 +60,9 @@
 <header>
   <div class="boxer">   
     <div class="logo">
-        <img src="BLYNQ LLC SVG.svg" width="120" height="120" alt="BLYNQ Smart Clean Logo"> 
+        <a href="index.html">
+          <img src="BLYNQ LLC SVG.svg" width="120" height="120" alt="BLYNQ Smart Clean Logo"> 
+        </a>
     </div>
 
     <!-- Botón Hamburguesa para Mobile -->
@@ -43,15 +75,20 @@
     <!-- Contenedor de Navegación -->
     <nav class="nav-menu" id="nav-menu">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="contacto.html#contact">Contact Us</a></li>
+            <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+            <li><a href="services.html" class="active" data-en="Services" data-es="Servicios">Services</a></li>
+            <li><a href="about-us.html" data-en="About Us" data-es="Nosotros">About Us</a></li>
+            <li><a href="contacto.html#contact" data-en="Contact Us" data-es="Contacto">Contact Us</a></li>
         </ul>
 
         <!-- Botón de Contacto dentro del nav para móvil -->
         <div class="header-contact">
             <a href="https://wa.me/17018330415?text=Hi%20BLYNQ%2C%20I%27d%20like%20a%20cleaning%20quote." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp at (701) 833-0415"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg><span>(701) 833-0415</span></a>
+        </div>
+
+        <!-- Selector de Idioma -->
+        <div class="lang-switcher">
+            <button id="lang-btn" aria-label="Switch Language">🇺🇸 EN</button>
         </div>
     </nav>
   </div>  
@@ -63,17 +100,17 @@
 <section id="services-hero" class="services-hero-clean">
   <div class="boxer">
     <div class="hero-clean-content text-center">
-      <span class="promo-badge">Serving Minot, ND & Surrounding Areas</span>
+      <span class="promo-badge" data-en="Serving Minot, ND &amp; Surrounding Areas" data-es="Sirviendo a Minot, ND y áreas cercanas">Serving Minot, ND &amp; Surrounding Areas</span>
       
-      <h1>Specialized Cleaning Services Tailored to Your Space</h1>
+      <h1 data-en="Specialized Cleaning Services Tailored to Your Space" data-es="Servicios de Limpieza Especializados Adaptados a tu Espacio">Specialized Cleaning Services Tailored to Your Space</h1>
       
-      <p class="hero-subtitle">
+      <p class="hero-subtitle" data-en="High-standard residential, commercial, and post-construction cleaning throughout Minot, ND and nearby communities. Delivering fresh, bright, and spotless environments every time." data-es="Limpieza residencial, comercial y post-construcción de altos estándares en Minot, ND y comunidades cercanas. Entregando ambientes frescos, brillantes e impecables siempre.">
         High-standard residential, commercial, and post-construction cleaning throughout Minot, ND and nearby communities. 
         Delivering fresh, bright, and spotless environments every time.
       </p>
 
       <div class="hero-actions-center">
-        <a href="contacto.html#contact" class="btn btn-primary">Get a Free Estimate</a>
+        <a href="contacto.html#contact" class="btn btn-primary" data-en="Get a Free Estimate" data-es="Obtener Cotización Gratis">Get a Free Estimate</a>
         <a href="tel:7018330415" class="phone-link">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
@@ -91,9 +128,9 @@
     
     <!-- Header de la Sección -->
     <div class="section-header text-center">
-      <span class="promo-badge">Our Specialized Services</span>
-      <h2>Different Cleaning Concepts</h2>
-      <p class="section-subtitle">
+      <span class="promo-badge" data-en="Our Specialized Services" data-es="Nuestros Servicios Especializados">Our Specialized Services</span>
+      <h2 data-en="Different Cleaning Concepts" data-es="Diferentes Conceptos de Limpieza">Different Cleaning Concepts</h2>
+      <p class="section-subtitle" data-en="Tailored, high-quality cleaning solutions designed to meet the needs of homes, businesses, and post-construction projects." data-es="Soluciones de limpieza de alta calidad diseñadas a medida para satisfacer las necesidades de hogares, empresas y proyectos de post-construcción.">
         Tailored, high-quality cleaning solutions designed to meet the needs of homes, businesses, and post-construction projects.
       </p>
     </div>
@@ -105,7 +142,7 @@
       <article class="zigzag-item">
         <div class="zigzag-media">
           <img src="img-service/web/service-2.webp" width="1400" height="788" loading="lazy" decoding="async" alt="BLYNQ team arriving at a property with cleaning cart and supplies for a move-in/move-out clean">
-          <span class="zigzag-tag">Relocation</span>
+          <span class="zigzag-tag" data-en="Relocation" data-es="Reubicación">Relocation</span>
         </div>
         <div class="zigzag-content">
           <div class="zigzag-header-wrap">
@@ -114,24 +151,23 @@
             </div>
             <span class="service-number">01</span>
           </div>
-          <h3>Move-In & Move-Out Cleaning</h3>
-          <p>
+          <h3 data-en="Move-In &amp; Move-Out Cleaning" data-es="Limpieza de Mudanza (Entrada / Salida)">Move-In &amp; Move-Out Cleaning</h3>
+          <p data-en="Complete and reliable cleaning for properties before a new occupant moves in or after a tenant moves out, helping ensure the space is ready for its next chapter." data-es="Limpieza completa y confiable para propiedades antes de que se mude un nuevo ocupante o después de que un inquilino se retire, garantizando que el espacio esté listo.">
             Complete and reliable cleaning for properties before a new occupant moves in or after a tenant moves out, helping ensure the space is ready for its next chapter.
           </p>
-          <a href="contacto.html#contact" class="zigzag-link">Book This Service <span>&rarr;</span></a>
+          <a href="contacto.html#contact" class="zigzag-link"><span data-en="Book This Service" data-es="Reservar Este Servicio">Book This Service</span> <span>&rarr;</span></a>
         </div>
       </article>
 
-<!-- Item 2: Commercial Cleaning -->
+      <!-- Item 2: Commercial Cleaning -->
       <article class="zigzag-item reverse">
         <div class="zigzag-media">
-          <img src="img-service/web/service-6.webp" width="1400" height="957" loading="lazy" decoding="async" alt="BLYNQ team with professional cleaning equipment at a commercial facility">
-          <span class="zigzag-tag">Business</span>
+          <img src="img-service/web/comercial-clining.webp" width="1400" height="957" loading="lazy" decoding="async" alt="BLYNQ team with professional cleaning equipment at a commercial facility">
+          <span class="zigzag-tag" data-en="Business" data-es="Negocios">Business</span> 
         </div>
         <div class="zigzag-content">
           <div class="zigzag-header-wrap">
             <div class="service-icon">
-              <!-- Ícono actualizado de Edificio Comercial -->
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
                 <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
@@ -144,11 +180,11 @@
             </div>
             <span class="service-number">02</span>
           </div>
-          <h3>Commercial Cleaning</h3>
-          <p>
+          <h3 data-en="Commercial Cleaning" data-es="Limpieza Comercial">Commercial Cleaning</h3>
+          <p data-en="Professional cleaning services for offices, commercial buildings, and business spaces, keeping your property clean, organized, and welcoming." data-es="Servicios profesionales de limpieza para oficinas, edificios comerciales y espacios de negocios, manteniendo su propiedad limpia, organizada y acogedora.">
             Professional cleaning services for offices, commercial buildings, and business spaces, keeping your property clean, organized, and welcoming.
           </p>
-          <a href="contacto.html#contact" class="zigzag-link">Book This Service <span>&rarr;</span></a>
+          <a href="contacto.html#contact" class="zigzag-link"><span data-en="Book This Service" data-es="Reservar Este Servicio">Book This Service</span> <span>&rarr;</span></a>
         </div>
       </article>
 
@@ -156,7 +192,7 @@
       <article class="zigzag-item">
         <div class="zigzag-media">
           <img src="Galeria/web/Galeria-2.webp" width="1200" height="675" loading="lazy" decoding="async" alt="BLYNQ crew arriving with heavy-duty equipment for a post-construction cleanup">
-          <span class="zigzag-tag">Renovations</span>
+          <span class="zigzag-tag" data-en="Renovations" data-es="Renovaciones">Renovations</span>
         </div>
         <div class="zigzag-content">
           <div class="zigzag-header-wrap">
@@ -165,11 +201,11 @@
             </div>
             <span class="service-number">03</span>
           </div>
-          <h3>Post-Construction Cleaning</h3>
-          <p>
+          <h3 data-en="Post-Construction Cleaning" data-es="Limpieza Post-Construcción">Post-Construction Cleaning</h3>
+          <p data-en="Detailed removal of dust, debris, and construction residue to prepare newly renovated or constructed spaces for use." data-es="Eliminación detallada de polvo, escombros y residuos de construcción para dejar espacios recién renovados o construidos listos para su uso.">
             Detailed removal of dust, debris, and construction residue to prepare newly renovated or constructed spaces for use.
           </p>
-          <a href="contacto.html#contact" class="zigzag-link">Book This Service <span>&rarr;</span></a>
+          <a href="contacto.html#contact" class="zigzag-link"><span data-en="Book This Service" data-es="Reservar Este Servicio">Book This Service</span> <span>&rarr;</span></a>
         </div>
       </article>
 
@@ -177,7 +213,7 @@
       <article class="zigzag-item reverse">
         <div class="zigzag-media">
           <img src="img-service/web/service-3.webp" width="1400" height="1013" loading="lazy" decoding="async" alt="BLYNQ cleaners mopping and dusting a living room">
-          <span class="zigzag-tag">Home Care</span>
+          <span class="zigzag-tag" data-en="Home Care" data-es="Cuidado del Hogar">Home Care</span>
         </div>
         <div class="zigzag-content">
           <div class="zigzag-header-wrap">
@@ -186,19 +222,19 @@
             </div>
             <span class="service-number">04</span>
           </div>
-          <h3>Residential Cleaning</h3>
-          <p>
+          <h3 data-en="Residential Cleaning" data-es="Limpieza Residencial">Residential Cleaning</h3>
+          <p data-en="Thorough cleaning for homes and living spaces, with careful attention to detail and the areas that matter most." data-es="Limpieza exhaustiva para hogares y espacios residenciales, con cuidada atención a los detalles y a las áreas más importantes.">
             Thorough cleaning for homes and living spaces, with careful attention to detail and the areas that matter most.
           </p>
-          <a href="contacto.html#contact" class="zigzag-link">Book This Service <span>&rarr;</span></a>
+          <a href="contacto.html#contact" class="zigzag-link"><span data-en="Book This Service" data-es="Reservar Este Servicio">Book This Service</span> <span>&rarr;</span></a>
         </div>
       </article>
 
       <!-- Item 5: Deep Cleaning -->
       <article class="zigzag-item">
         <div class="zigzag-media">
-          <img src="Galeria/web/Galeria-4.webp" width="1200" height="666" loading="lazy" decoding="async" alt="BLYNQ cleaner deep cleaning and sanitizing a bathroom sink">
-          <span class="zigzag-tag popular">Most Popular</span>
+          <img src="img-service/web/limpieza-profunda.webp" width="1200" height="666" loading="lazy" decoding="async" alt="BLYNQ cleaner deep cleaning and sanitizing a bathroom sink">
+          <span class="zigzag-tag popular" data-en="Most Popular" data-es="Más Popular">Most Popular</span>
         </div>
         <div class="zigzag-content">
           <div class="zigzag-header-wrap">
@@ -207,19 +243,19 @@
             </div>
             <span class="service-number">05</span>
           </div>
-          <h3>Deep Cleaning</h3>
-          <p>
+          <h3 data-en="Deep Cleaning" data-es="Limpieza Profunda">Deep Cleaning</h3>
+          <p data-en="A detailed and intensive cleaning service designed to reach those often-overlooked areas and leave your space refreshed from top to bottom." data-es="Un servicio de limpieza detallado e intensivo diseñado para llegar a esas áreas que a menudo se pasan por alto y renovar tu espacio de arriba a abajo.">
             A detailed and intensive cleaning service designed to reach those often-overlooked areas and leave your space refreshed from top to bottom.
           </p>
-          <a href="contacto.html#contact" class="zigzag-link">Book This Service <span>&rarr;</span></a>
+          <a href="contacto.html#contact" class="zigzag-link"><span data-en="Book This Service" data-es="Reservar Este Servicio">Book This Service</span> <span>&rarr;</span></a>
         </div>
       </article>
 
       <!-- Item 6: Trash Can Cleaning -->
       <article class="zigzag-item reverse">
         <div class="zigzag-media">
-          <img src="img-service/web/service-7.webp" width="1400" height="938" loading="lazy" decoding="async" alt="BLYNQ cleaners with sanitizing products and supplies">
-          <span class="zigzag-tag">Sanitization</span>
+          <img src="img-service/web/limpiando-contenedor.webp" width="1400" height="938" loading="lazy" decoding="async" alt="BLYNQ cleaners with sanitizing products and supplies">
+          <span class="zigzag-tag" data-en="Sanitization" data-es="Desinfección">Sanitization</span> 
         </div>
         <div class="zigzag-content">
           <div class="zigzag-header-wrap">
@@ -228,18 +264,17 @@
             </div>
             <span class="service-number">06</span>
           </div>
-          <h3>Trash Can Cleaning</h3>
-          <p>
+          <h3 data-en="Trash Can Cleaning" data-es="Limpieza de Basureros">Trash Can Cleaning</h3>
+          <p data-en="Professional trash can cleaning and sanitizing designed to remove dirt, grime, odors, and buildup, leaving your trash cans fresh, clean, and hygienic." data-es="Limpieza y desinfección profesional de basureros para eliminar suciedad, malos olores y acumulaciones, dejándolos frescos y libres de gérmenes.">
             Professional trash can cleaning and sanitizing designed to remove dirt, grime, odors, and buildup, leaving your trash cans fresh, clean, and hygienic.
           </p>
-          <a href="contacto.html#contact" class="zigzag-link">Book This Service <span>&rarr;</span></a>
+          <a href="contacto.html#contact" class="zigzag-link"><span data-en="Book This Service" data-es="Reservar Este Servicio">Book This Service</span> <span>&rarr;</span></a>
         </div>
       </article>
 
     </div>
   </div>
 </section>
-
 
 </main>
 
@@ -252,24 +287,24 @@
           <!-- Columna 1: Marca & Dueña -->
           <div class="footer-col footer-brand-col">
             <p class="footer-logo"><img src="logo-white.webp" width="180" height="180" alt="BLYNQ Smart Clean Logo"></p>
-            <p class="footer-tagline">Professional, detail-oriented cleaning solutions designed for homes and commercial spaces.</p>
+            <p class="footer-tagline" data-en="Professional, detail-oriented cleaning solutions designed for homes and commercial spaces." data-es="Soluciones de limpieza profesionales y detalladas diseñadas para hogares y espacios comerciales.">Professional, detail-oriented cleaning solutions designed for homes and commercial spaces.</p>
           </div>
 
           <!-- Columna 2: Enlaces Rápidos -->
           <div class="footer-col">
-            <h2 class="footer-heading">Quick Links</h2>
+            <h2 class="footer-heading" data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h2>
             <ul class="footer-links">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="services.html">Our Services</a></li>
-              <li><a href="about-us.html">About Us</a></li>
-              <li><a href="index.html#testimonials">Testimonials</a></li>
-              <li><a href="contacto.html#contact">Get a Free Quote</a></li>
+              <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+              <li><a href="services.html" data-en="Our Services" data-es="Nuestros Servicios">Our Services</a></li>
+              <li><a href="about-us.html" data-en="About Us" data-es="Nosotros">About Us</a></li>
+              <li><a href="index.html#testimonials" data-en="Testimonials" data-es="Testimonios">Testimonials</a></li>
+              <li><a href="contacto.html#contact" data-en="Get a Free Quote" data-es="Obtener Cotización">Get a Free Quote</a></li>
             </ul>
           </div>
 
           <!-- Columna 3: Información de Contacto Directo -->
           <div class="footer-col">
-            <h2 class="footer-heading">Get in Touch</h2>
+            <h2 class="footer-heading" data-en="Get in Touch" data-es="Ponte en Contacto">Get in Touch</h2>
             <ul class="footer-contact">
               <li>
                 <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -290,8 +325,8 @@
           <div class="footer-col footer-badge-col">
             <div class="footer-trust-box">
               <div class="trust-icon rating-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
-              <h2>100% Satisfaction</h2>
-              <p>We take pride in our high-standard cleaning. Your space will shine every time.</p>
+              <h2 data-en="100% Satisfaction" data-es="100% Satisfacción">100% Satisfaction</h2>
+              <p data-en="We take pride in our high-standard cleaning. Your space will shine every time." data-es="Nos enorgullecemos de nuestra limpieza de altos estándares. Tu espacio brillará siempre.">We take pride in our high-standard cleaning. Your space will shine every time.</p>
             </div>
           </div>
 
@@ -299,14 +334,7 @@
 
         <!-- Sub-footer (Derechos de Autor) -->
         <div class="footer-bottom">
-          <p>&copy; 2026 BLYNQ Clean Services. All Rights Reserved.</p>
-          <!-- TODO: reactivar cuando existan las páginas legales
-          <div class="footer-legal">
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <span>•</span>
-            <a href="terms-of-service.html">Terms of Service</a>
-          </div>
-          -->
+          <p data-en="&copy; 2026 BLYNQ Clean Services. All Rights Reserved." data-es="&copy; 2026 BLYNQ Clean Services. Todos los Derechos Reservados.">&copy; 2026 BLYNQ Clean Services. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

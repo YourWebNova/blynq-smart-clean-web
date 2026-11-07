@@ -22,6 +22,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="about Us/style-about-us.css">
+    
+    <style>
+        /* Estilo para el botón del selector de idioma */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-switcher button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background-color: transparent;
+            color: var(--color-primary-dark, #0369a1);
+            border: 1px solid rgba(45, 187, 240, 0.35);
+            padding: 8px 16px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border-radius: 99px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-switcher button:hover {
+            background-color: var(--color-secondary-light, #e0f2fe);
+            border-color: var(--color-secondary, #2dbbf0);
+            transform: translateY(-1px);
+        }
+    </style>
 </head>
 
 <body>
@@ -45,14 +75,19 @@
       <!-- Contenedor de Navegación -->
       <nav class="nav-menu" id="nav-menu">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="#about" class="active">About Us</a></li>
-          <li><a href="contacto.html#contact">Contact Us</a></li>
+          <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+          <li><a href="services.html" data-en="Services" data-es="Servicios">Services</a></li>
+          <li><a href="#about" class="active" data-en="About Us" data-es="Nosotros">About Us</a></li>
+          <li><a href="contacto.html#contact" data-en="Contact Us" data-es="Contacto">Contact Us</a></li>
         </ul>
 
         <div class="header-contact">
           <a href="https://wa.me/17018330415?text=Hi%20BLYNQ%2C%20I%27d%20like%20a%20cleaning%20quote." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp at (701) 833-0415"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg><span>(701) 833-0415</span></a>
+        </div>
+
+        <!-- Selector de Idioma -->
+        <div class="lang-switcher">
+          <button id="lang-btn" aria-label="Switch Language">🇺🇸 EN</button>
         </div>
       </nav>
     </div>  
@@ -64,42 +99,40 @@
     <section class="about-hero-clean">
       <div class="boxer">
         <div class="hero-clean-content text-center">
-          <span class="promo-badge">Our Story &amp; Commitment</span>
+          <span class="promo-badge" data-en="Our Story &amp; Commitment" data-es="Nuestra Historia y Compromiso">Our Story &amp; Commitment</span>
           <h1>BLYNQ Smart Clean</h1>
-          <p class="hero-subtitle">
-               Dedicated to providing trusted, high-standard residential and commercial cleaning throughout Minot, North Dakota and surrounding areas.
+          <p class="hero-subtitle" data-en="Provide the best cleaning solutions in Minot ND and surrounding areas." data-es="Brindamos las mejores soluciones de limpieza en Minot, ND y sus alrededores.">
+              Provide the best cleaning solutions in Minot ND and surrounding areas.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 1: WHO WE ARE (ZIG-ZAG STYLE WITH OWNERS IMAGE) -->
+    <!-- SECTION 1: WHO WE ARE -->
     <section id="about" class="about-who-section py-section">
       <div class="boxer">
         <div class="who-grid">
           
-          <!-- Imagen de la Propietaria/Fundadores -->
           <figure class="who-figure">
             <div class="who-media">
               <img src="about Us/Owners-1.webp" width="700" height="1244" loading="lazy" decoding="async" alt="Founders of BLYNQ Cleaning Services LLC">
             </div>
-            <figcaption class="who-caption">Blanqui &amp; Osmar, founders of BLYNQ Cleaning Services LLC</figcaption>
+            <figcaption class="who-caption" data-en="Blanqui &amp; Osmar Knight, founders of BLYNQ Cleaning Services LLC" data-es="Blanqui &amp; Osmar Knight, fundadores de BLYNQ Cleaning Services LLC">Blanqui &amp; Osmar Knight, founders of BLYNQ Cleaning Services LLC</figcaption>
           </figure>
 
-          <!-- Texto Who We Are -->
           <div class="who-content">
-            <span class="section-tagline">Who We Are</span>
-            <h2>Dedicated to Excellence in Every Clean</h2>
-            <p class="lead-text">
+            <span class="section-tagline" data-en="Who We Are" data-es="Quiénes Somos">Who We Are</span>
+            <h2 data-en="Dedicated to Excellence in Every Clean" data-es="Dedicados a la Excelencia en Cada Limpieza">Dedicated to Excellence in Every Clean</h2>
+            <p class="lead-text" data-en="At BLYNQ Cleaning Services LLC, we believe that cleaning is more than a service — it is an art." data-es="En BLYNQ Cleaning Services LLC, creemos que la limpieza es más que un servicio: es un arte.">
               At BLYNQ Cleaning Services LLC, we believe that cleaning is more than a service — it is an art.
             </p>
-            <p>
+            <p data-en="We don’t just clean spaces, we create environments that look, feel, and perform at their best. Our goal is not simply to meet expectations, but to exceed them and build lasting relationships with our clients through trust, quality, and outstanding service." data-es="No solo limpiamos espacios, creamos ambientes que se ven, se sienten y funcionan de la mejor manera. Nuestro objetivo no es simplemente cumplir con las expectativas, sino superarlas y construir relaciones duraderas con nuestros clientes basadas en la confianza, la calidad y un servicio excepcional.">
               We don’t just clean spaces, we create environments that look, feel, and perform at their best. Our goal is not simply to meet expectations, but to exceed them and build lasting relationships with our clients through trust, quality, and outstanding service.
             </p>
 
             <blockquote class="owner-quote">
-              “We don’t just clean spaces — we care for them, down to the smallest detail.”
-              <cite class="owner-quote-author">— Blanqui, Founder</cite>
+              <span data-en="“We don’t just clean spaces — we care for them, down to the smallest detail.”" data-es="“No solo limpiamos espacios; los cuidamos hasta el más mínimo detalle.”">“We don’t just clean spaces — we care for them, down to the smallest detail.”</span>
+              <cite class="owner-quote-author" data-en="— Blanqui Knight, Founder" data-es="— Blanqui Knight, Fundadora">— Blanqui Knight, Founder</cite>
             </blockquote>
           </div>
 
@@ -107,12 +140,11 @@
       </div>
     </section>
 
-    <!-- SECTION 2: MISSION & VISION (GRID + SECOND OWNERS PHOTO) -->
+    <!-- SECTION 2: MISSION & VISION -->
     <section class="mission-vision-section py-section">
       <div class="boxer">
         <div class="mission-grid">
           
-          <!-- Columna Texto: Misión & Visión -->
           <div class="mission-cards-wrap">
             
             <!-- Misión -->
@@ -121,8 +153,8 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
               </div>
               <div class="mv-body">
-                <h3>Our Mission</h3>
-                <p>
+                <h3 data-en="Our Mission" data-es="Nuestra Misión">Our Mission</h3>
+                <p data-en="To create cleaner, healthier, and more welcoming spaces through professional, reliable cleaning services. At BLYNQ, we are committed to excellence, paying close attention to every detail to ensure our clients receive consistently high-quality results they can trust." data-es="Crear espacios más limpios, saludables y acogedores a través de servicios de limpieza profesionales y confiables. En BLYNQ estamos comprometidos con la excelencia, prestando especial atención a cada detalle para garantizar resultados de alta calidad de forma constante.">
                   To create cleaner, healthier, and more welcoming spaces through professional, reliable cleaning services. At BLYNQ, we are committed to excellence, paying close attention to every detail to ensure our clients receive consistently high-quality results they can trust.
                 </p>
               </div>
@@ -134,8 +166,8 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/></svg>
               </div>
               <div class="mv-body">
-                <h3>Our Vision</h3>
-                <p>
+                <h3 data-en="Our Vision" data-es="Nuestra Visión">Our Vision</h3>
+                <p data-en="To become one of the most trusted and recognized cleaning companies in Minot, ND and the surrounding areas known for our exceptional quality, attention to detail, integrity, and dedication to our clients." data-es="Convertirnos en una de las empresas de limpieza más confiables y reconocidas en Minot, ND y áreas circundantes, destacándonos por nuestra calidad excepcional, atención al detalle, integridad y dedicación.">
                   To become one of the most trusted and recognized cleaning companies in Minot, ND and the surrounding areas known for our exceptional quality, attention to detail, integrity, and dedication to our clients.
                 </p>
               </div>
@@ -143,7 +175,6 @@
 
           </div>
 
-          <!-- Imagen Secundaria de los Dueños -->
           <div class="mission-media">
             <img src="Galeria/web/Galeria-7.webp" width="1200" height="675" loading="lazy" decoding="async" alt="BLYNQ cleaning team posing together in a finished room">
           </div>
@@ -156,9 +187,9 @@
     <section class="core-values-section py-section">
       <div class="boxer">
         <div class="section-header text-center">
-          <span class="promo-badge">The Pillars of BLYNQ</span>
-          <h2>Our Core Values</h2>
-          <p class="section-subtitle">
+          <span class="promo-badge" data-en="The Pillars of BLYNQ" data-es="Los Pilares de BLYNQ">The Pillars of BLYNQ</span>
+          <h2 data-en="Our Core Values" data-es="Nuestros Valores Principales">Our Core Values</h2>
+          <p class="section-subtitle" data-en="The principles that guide our daily work, customer interactions, and service standards across North Dakota." data-es="Los principios que guían nuestro trabajo diario, la interacción con clientes y nuestros estándares de servicio en North Dakota.">
             The principles that guide our daily work, customer interactions, and service standards across North Dakota.
           </p>
         </div>
@@ -170,8 +201,8 @@
             <div class="value-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </div>
-            <h3>Excellence</h3>
-            <p>We strive for excellence in every service we provide, leaving no stone unturned.</p>
+            <h3 data-en="Excellence" data-es="Excelencia">Excellence</h3>
+            <p data-en="We strive for excellence in every service we provide, leaving no stone unturned." data-es="Nos esforzamos por alcanzar la excelencia en cada servicio que brindamos, sin pasar por alto ningún detalle.">We strive for excellence in every service we provide, leaving no stone unturned.</p>
           </div>
 
           <!-- Value 2 -->
@@ -179,8 +210,8 @@
             <div class="value-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </div>
-            <h3>Attention to Detail</h3>
-            <p>We believe the smallest details make the biggest difference in a clean environment.</p>
+            <h3 data-en="Attention to Detail" data-es="Atención al Detalle">Attention to Detail</h3>
+            <p data-en="We believe the smallest details make the biggest difference in a clean environment." data-es="Creemos que los detalles más pequeños marcan la diferencia más grande en un espacio limpio.">We believe the smallest details make the biggest difference in a clean environment.</p>
           </div>
 
           <!-- Value 3 -->
@@ -188,8 +219,8 @@
             <div class="value-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
-            <h3>Reliability</h3>
-            <p>Our clients can count on us to be consistent, dependable, and punctual every time.</p>
+            <h3 data-en="Reliability" data-es="Confiabilidad">Reliability</h3>
+            <p data-en="Our clients can count on us to be consistent, dependable, and punctual every time." data-es="Nuestros clientes pueden contar con que seremos consistentes, confiables y puntuales en todo momento.">Our clients can count on us to be consistent, dependable, and punctual every time.</p>
           </div>
 
           <!-- Value 4 -->
@@ -197,8 +228,8 @@
             <div class="value-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h3>Integrity</h3>
-            <p>We conduct our business with absolute honesty, transparency, and respect.</p>
+            <h3 data-en="Integrity" data-es="Integridad">Integrity</h3>
+            <p data-en="We conduct our business with absolute honesty, transparency, and respect." data-es="Llevamos a cabo nuestro trabajo con absoluta honestidad, transparencia y respeto.">We conduct our business with absolute honesty, transparency, and respect.</p>
           </div>
 
           <!-- Value 5 -->
@@ -206,8 +237,8 @@
             <div class="value-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
             </div>
-            <h3>Professionalism</h3>
-            <p>We maintain high standards in our work, communication, and customer care.</p>
+            <h3 data-en="Professionalism" data-es="Profesionalismo">Professionalism</h3>
+            <p data-en="We maintain high standards in our work, communication, and customer care." data-es="Mantenemos altos estándares en nuestro trabajo, comunicación y atención al cliente.">We maintain high standards in our work, communication, and customer care.</p>
           </div>
 
           <!-- Value 6 -->
@@ -215,8 +246,8 @@
             <div class="value-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
             </div>
-            <h3>Customer Satisfaction</h3>
-            <p>Our goal is to exceed expectations and build lasting relationships with every client.</p>
+            <h3 data-en="Customer Satisfaction" data-es="Satisfacción del Cliente">Customer Satisfaction</h3>
+            <p data-en="Our goal is to exceed expectations and build lasting relationships with every client." data-es="Nuestro objetivo es superar las expectativas y construir relaciones duraderas con cada cliente.">Our goal is to exceed expectations and build lasting relationships with every client.</p>
           </div>
 
           <!-- Value 7 -->
@@ -224,8 +255,8 @@
             <div class="value-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </div>
-            <h3>Commitment</h3>
-            <p>We take deep pride in our work and are dedicated to delivering quality results.</p>
+            <h3 data-en="Commitment" data-es="Compromiso">Commitment</h3>
+            <p data-en="We take deep pride in our work and are dedicated to delivering quality results." data-es="Nos enorgullecemos de nuestro trabajo y estamos dedicados a entregar resultados de máxima calidad.">We take deep pride in our work and are dedicated to delivering quality results.</p>
           </div>
 
           <!-- Value 8 -->
@@ -233,8 +264,8 @@
             <div class="value-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            <h3>Respect</h3>
-            <p>We treat our clients, their properties, and their spaces with the utmost care.</p>
+            <h3 data-en="Respect" data-es="Respeto">Respect</h3>
+            <p data-en="We treat our clients, their properties, and their spaces with the utmost care." data-es="Tratamos a nuestros clientes, sus propiedades y sus espacios con el mayor cuidado y respeto.">We treat our clients, their properties, and their spaces with the utmost care.</p>
           </div>
 
         </div>
@@ -249,11 +280,11 @@
             <img src="about Us/splash.webp" width="600" height="1066" loading="lazy" decoding="async" alt="BLYNQ cleaner spraying sanitizing solution">
           </div>
           <div class="cta-text-col">
-            <h2>Ready to Experience the BLYNQ Difference?</h2>
-            <p>Get in touch with us today to discuss your residential or commercial cleaning needs in Minot, ND and surrounding communities.</p>
+            <h2 data-en="Ready to Experience the BLYNQ Difference?" data-es="¿Listo para experimentar la diferencia BLYNQ?">Ready to Experience the BLYNQ Difference?</h2>
+            <p data-en="Get in touch with us today to discuss your residential or commercial cleaning needs in Minot, ND and surrounding communities." data-es="Ponte en contacto con nosotros hoy mismo para consultar tus necesidades de limpieza residencial o comercial en Minot, ND y comunidades cercanas.">Get in touch with us today to discuss your residential or commercial cleaning needs in Minot, ND and surrounding communities.</p>
             <div class="cta-buttons">
-              <a href="contacto.html#contact" class="btn btn-primary">Request a Free Estimate</a>
-              <a href="tel:7018330415" class="phone-link">Call: (701) 833-0415</a>
+              <a href="contacto.html#contact" class="btn btn-primary" data-en="Request a Free Estimate" data-es="Solicitar Cotización Gratis">Request a Free Estimate</a>
+              <a href="tel:7018330415" class="phone-link"><span data-en="Call: (701) 833-0415" data-es="Llamar: (701) 833-0415">Call: (701) 833-0415</span></a>
             </div>
           </div>
         </div>
@@ -268,21 +299,21 @@
       <div class="footer-grid">
         <div class="footer-col footer-brand-col">
           <p class="footer-logo"><img src="logo-white.webp" width="180" height="180" alt="BLYNQ Smart Clean Logo"></p>
-          <p class="footer-tagline">Professional, detail-oriented cleaning solutions designed for homes and commercial spaces.</p>
+          <p class="footer-tagline" data-en="Professional, detail-oriented cleaning solutions designed for homes and commercial spaces." data-es="Soluciones de limpieza profesionales y detalladas diseñadas para hogares y espacios comerciales.">Professional, detail-oriented cleaning solutions designed for homes and commercial spaces.</p>
         </div>
 
         <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
+          <h2 class="footer-heading" data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h2>
           <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Our Services</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="contacto.html#contact">Get a Free Quote</a></li>
+            <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+            <li><a href="services.html" data-en="Our Services" data-es="Nuestros Servicios">Our Services</a></li>
+            <li><a href="#about" data-en="About Us" data-es="Nosotros">About Us</a></li>
+            <li><a href="contacto.html#contact" data-en="Get a Free Quote" data-es="Obtener Cotización">Get a Free Quote</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h2 class="footer-heading">Get in Touch</h2>
+          <h2 class="footer-heading" data-en="Get in Touch" data-es="Ponte en Contacto">Get in Touch</h2>
           <ul class="footer-contact">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -302,14 +333,14 @@
         <div class="footer-col footer-badge-col">
           <div class="footer-trust-box">
             <div class="trust-icon rating-stars">★★★★★</div>
-            <h2>100% Satisfaction</h2>
-            <p>We take pride in our high-standard cleaning. Your space will shine every time.</p>
+            <h2 data-en="100% Satisfaction" data-es="100% Satisfacción">100% Satisfaction</h2>
+            <p data-en="We take pride in our high-standard cleaning. Your space will shine every time." data-es="Nos enorgullecemos de nuestra limpieza de altos estándares. Tu espacio brillará siempre.">We take pride in our high-standard cleaning. Your space will shine every time.</p>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 BLYNQ Clean Services. All Rights Reserved.</p>
+        <p data-en="© 2026 BLYNQ Clean Services. All Rights Reserved." data-es="© 2026 BLYNQ Clean Services. Todos los Derechos Reservados.">© 2026 BLYNQ Clean Services. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
