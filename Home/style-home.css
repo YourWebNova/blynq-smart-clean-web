@@ -1095,6 +1095,48 @@ header .header-contact a svg {
     height: 40px;
     animation-delay: 2.2s;
   }
+
+  /* Destellos adicionales repartidos por el área completa */
+  .sparkle-4 {
+    top: 15%;
+    right: 10%;
+    width: 30px;
+    height: 30px;
+    animation-delay: 0.6s;
+  }
+
+  .sparkle-5 {
+    top: 40%;
+    right: 8%;
+    width: 26px;
+    height: 26px;
+    animation-delay: 1.7s;
+  }
+
+  .sparkle-6 {
+    top: 60%;
+    right: 35%;
+    width: 32px;
+    height: 32px;
+    animation-delay: 2.8s;
+  }
+
+  /* Destellos a nivel de piso */
+  .sparkle-7 {
+    top: 85%;
+    right: 30%;
+    width: 34px;
+    height: 34px;
+    animation-delay: 0.9s;
+  }
+
+  .sparkle-8 {
+    top: 88%;
+    right: 12%;
+    width: 28px;
+    height: 28px;
+    animation-delay: 2s;
+  }
 }
 
 /* Animación con destello de luz mucho más intenso */
@@ -2144,10 +2186,101 @@ header .header-contact a svg {
 }
 
 .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
     gap: 40px;
     margin-top: 50px;
+    transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.testimonials-grid .testimonial-item {
+    flex: 0 0 calc((100% - 80px) / 3); /* 3 tarjetas por página, respetando 2 gaps de 40px */
+    min-width: 0;
+}
+
+/* Slider de Testimonios: muestra 3 por página, navegable con flechas */
+.testimonials-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.testimonials-viewport {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.testimonials-viewport .testimonials-grid {
+    margin-top: 0;
+}
+
+/* Contenedor de flechas: centrado bajo el carrusel, mismo en todas las pantallas */
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Flechas pequeñas estilo botón (30x30px) */
+.slider-arrow {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-brand);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    padding: 0;
+}
+
+.slider-arrow svg {
+    width: 14px;
+    height: 14px;
+}
+
+.slider-arrow:hover:not(:disabled) {
+    background: var(--gradient-brand-hover);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-1px);
+}
+
+/* Flechas pequeñas estilo botón (30x30px) - centradas verticalmente junto al slider */
+.testimonials-slider {
+    align-items: center;
+}
+
+/* Evita que el botón "salte" al deshabilitarlo: se mantiene el layout con invisibilidad visual */
+.slider-arrow[disabled] {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+/* El track se desliza según la página actual (lo calcula el JS con precisión de píxeles) */
+.testimonials-slider[data-page="1"] .testimonials-grid {
+    transform: translateX(calc(-1 * ((100% - 80px) / 3 + 40px)));
+}
+
+@media (max-width: 1019px) {
+    .testimonials-grid .testimonial-item {
+        flex-basis: calc((100% - 40px) / 2); /* 2 tarjetas por página en tablet */
+    }
+}
+
+@media (max-width: 767px) {
+    .testimonials-grid .testimonial-item {
+        flex-basis: 100%;
+    }
 }
 
 .testimonial-item {

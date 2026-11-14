@@ -100,6 +100,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+/* Slider de Testimonios: carrusel que desliza de a una tarjeta */
+(() => {
+  const slider = document.querySelector('.testimonials-slider');
+  if (!slider) return;
+
+  const grid = slider.querySelector('.testimonials-grid');
+  const prevBtn = slider.querySelector('.slider-prev');
+  const nextBtn = slider.querySelector('.slider-next');
+
+  const perPage = () => (window.innerWidth <= 767 ? 1 : window.innerWidth <= 1019 ? 2 : 3);
+  let page = 0;
+
+  const maxPage = () => {
+    const total = slider.querySelectorAll('.testimonial-item').length;
+    return Math.max(0, Math.ceil(total / perPage()) - 1);
+  };
+
+  /* Desplaza el track una tarjeta a la izquierda por cada página */
+  const applyTransform = () => {
+    const item = grid.querySelector('.testimonial-item');
+    if (!item) return;
+    const gap = 40;
+    const step = item.offsetWidth + gap;
+    grid.style.transform = `translateX(-${page * step}px)`;
+  };
+
+  const render = () => {
+    slider.dataset.page = page;
+    prevBtn.disabled = page === 0;
+    nextBtn.disabled = page >= maxPage();
+    applyTransform();
+  };
+
+  prevBtn.addEventListener('click', () => {
+    if (page > 0) { page--; render(); }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (page < maxPage()) { page++; render(); }
+  });
+
+  // Swipe táctil en móvil
+  let touchStartX = 0;
+  slider.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  slider.addEventListener('touchend', (e) => {
+    const deltaX = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(deltaX) < 50) return; // ignora toques cortos
+    if (deltaX < 0 && page < maxPage()) {
+      page++; // swipe a la izquierda → siguiente
+    } else if (deltaX > 0 && page > 0) {
+      page--; // swipe a la derecha → anterior
+    }
+    render();
+  }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    page = Math.min(page, maxPage());
+    render();
+  });
+
+  render();
+})();
+
+
 // script para multi-idiomas
 document.addEventListener('DOMContentLoaded', () => {
     const langBtn = document.getElementById('lang-btn');
