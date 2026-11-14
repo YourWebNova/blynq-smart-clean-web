@@ -116,10 +116,10 @@
    ========================================================================== */
 html {
     max-width: 100%;
+    overflow-x: clip; /* recorte aquí: overflow en body rompería position:sticky del header */
 }
 
 body {
-    overflow-x: clip;
     max-width: 100%;
 }
 
@@ -1169,9 +1169,36 @@ header .header-contact a svg {
   margin-top: 40px;
   padding-top: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
   font-size: 0.85rem;
   color: #64748b;
+}
+
+.footer-bottom p {
+  margin-bottom: 0;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.footer-privacy-link {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 150ms ease;
+}
+
+.footer-privacy-link:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 /* ==========================================================================

@@ -116,10 +116,10 @@
    ========================================================================== */
 html {
     max-width: 100%;
+    overflow-x: clip; /* recorte aquí: overflow en body rompería position:sticky del header */
 }
 
 body {
-    overflow-x: clip;
     max-width: 100%;
 }
 
@@ -863,6 +863,17 @@ header .header-contact a svg {
 }
 
 .footer-legal a:hover {
+  color: #ffffff;
+}
+
+.footer-privacy-link {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.825rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-privacy-link:hover {
   color: #ffffff;
 }
 
