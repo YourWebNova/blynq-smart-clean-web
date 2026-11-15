@@ -2347,6 +2347,10 @@ textarea:focus {
   transform: scale(1.08); 
 }
 
+.galeria-11 img {
+  object-position: 40% 74%;
+}
+
 /* --------------------------------------------------------------------------
    ADAPTACIÓN MOBILE (Ocultar desde el 4to elemento)
    -------------------------------------------------------------------------- */
