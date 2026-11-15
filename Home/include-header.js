@@ -42,7 +42,7 @@
       // 3. Refresca el texto del botón de idioma (fue inyectado después
       //    de que funciones-home.js hicira su pasada inicial)
       const langBtn = document.getElementById('lang-btn');
-      if (langBtn) langBtn.innerHTML = lang === 'es' ? '🇪🇸 ES' : '🇺🇸 EN';
+      if (langBtn) langBtn.innerHTML = lang === 'es' ? '🇪🇸 Español' : '🇺🇸 English';
 
       // 4. Re-engancha el menú hamburguesa (el listener original quedó
       //    apuntando al botón del HTML estático, ya removido)
@@ -72,7 +72,7 @@
           const next = (localStorage.getItem('blynq_lang') || 'en') === 'en' ? 'es' : 'en';
           localStorage.setItem('blynq_lang', next);
           document.documentElement.lang = next;
-          langBtn.innerHTML = next === 'es' ? '🇪🇸 ES' : '🇺🇸 EN';
+          langBtn.innerHTML = next === 'es' ? '🇪🇸 Español' : '🇺🇸 English';
           document.querySelectorAll('[data-en][data-es]').forEach((el) => {
             el.innerHTML = next === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
           });
