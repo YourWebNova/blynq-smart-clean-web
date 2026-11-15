@@ -1,0 +1,266 @@
+/* ==========================================================================
+   HEADER BLYNQ — CSS del módulo reutilizable
+   Se carga junto con Home/partials/header.html + Home/include-header.js:
+     <link rel="stylesheet" href="Home/style-header.css">
+   Este archivo es la ÚNICA fuente de estilos del header:
+   cualquier cambio aquí se refleja en las 5 plantillas.
+   Requiere las variables CSS de marca (:root) ya definidas por la
+   hoja principal de cada página (style-home / style-services / etc.)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Barra sticky con efecto glass
+   -------------------------------------------------------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 12px 0;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.05));
+}
+
+header .boxer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Logo */
+header .logo {
+  align-items: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  width: 152px;
+}
+
+header .logo a {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  display: block;
+  height: auto;
+  max-width: 114px;
+  object-fit: contain;
+  transform: scale(1.4);
+}
+
+/* Navegación Desktop */
+header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 68px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-right: 24px;
+}
+
+header nav ul li a {
+  position: relative;
+  font-family: var(--font-main, inherit);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-heading, #0f172a);
+  text-decoration: none;
+  padding: 6px 0;
+  transition: color 0.2s ease;
+}
+
+/* Subrayado animado en hover y en el enlace de la página actual */
+header nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--gradient-brand, #0070f3);
+  border-radius: 99px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header nav ul li a:hover::after,
+header nav ul li a.active::after {
+  width: 100%;
+}
+
+/* Botón Contacto Header Desktop (WhatsApp) */
+header .header-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-secondary-light, #e0f2fe);
+  color: var(--color-primary-dark, #0369a1) !important;
+  border: 1px solid rgba(45, 187, 240, 0.35);
+  padding: 9px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 99px;
+  transition: all 0.2s ease;
+}
+
+/* Ícono de WhatsApp en verde oficial de la marca */
+header .header-contact a svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: #25D366;
+}
+
+/* Botón Selector de Idioma */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+}
+
+.lang-switcher button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: transparent;
+  color: var(--color-primary-dark, #0369a1);
+  border: 1px solid rgba(45, 187, 240, 0.35);
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-switcher button:hover {
+  background-color: var(--color-secondary-light, #e0f2fe);
+  border-color: var(--color-secondary, #2dbbf0);
+  transform: translateY(-1px);
+}
+
+/* Botón Hamburguesa */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-text-heading, #0f172a);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle.is-active span:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+.menu-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-active span:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+@media (min-width: 1020px) {
+  header nav.nav-menu {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE MOBILE (< 992px): Drawer lateral
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+
+  header .boxer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Drawer Lateral Fijo */
+  header nav.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    height: 100dvh;
+    /* navegadores móviles modernos */
+    background-color: #ffffff;
+    padding: 90px 24px 40px;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    visibility: hidden;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 0.35s linear;
+  }
+
+  /* Estado Abierto */
+  header nav.nav-menu.is-open {
+    right: 0;
+    visibility: visible;
+  }
+
+  header nav.nav-menu ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  header nav.nav-menu ul li {
+    width: 100%;
+  }
+
+  header nav.nav-menu ul li a {
+    display: block;
+    font-size: 1.1rem;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  header nav.nav-menu ul li a::after {
+    display: none;
+  }
+
+  /* Botón de contacto dentro del menú desplegable */
+  header nav.nav-menu .header-contact {
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  header nav.nav-menu .header-contact a {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+}
