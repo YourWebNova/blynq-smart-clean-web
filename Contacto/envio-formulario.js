@@ -8,7 +8,7 @@
   const form = document.getElementById('contact-form');
   if (!form) return;
 
-  const ENDPOINT = 'https://formsubmit.co/ajax/blynq.cleanservices@gmail.com';
+  const ENDPOINT = 'https://formsubmit.co/ajax/bsantamaria@blynqcleaningservices.com';
 
   const submitBtn = form.querySelector('button[type="submit"]');
   const originalBtnHTML = submitBtn.innerHTML;
