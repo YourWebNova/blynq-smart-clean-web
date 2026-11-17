@@ -39,10 +39,9 @@
         el.innerHTML = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
       });
 
-      // 3. Refresca el texto del botón de idioma (fue inyectado después
-      //    de que funciones-home.js hicira su pasada inicial)
+      // 3. Refresca el estado visual del botón dual (palabra activa en bold/azul)
       const langBtn = document.getElementById('lang-btn');
-      if (langBtn) langBtn.innerHTML = lang === 'es' ? '🇪🇸 Español' : '🇺🇸 English';
+      if (langBtn) syncLangButton(langBtn, lang);
 
       // 4. Re-engancha el menú hamburguesa (el listener original quedó
       //    apuntando al botón del HTML estático, ya removido)
@@ -65,19 +64,52 @@
         );
       }
 
-      // 5. Re-engancha el selector de idioma para que traduzca TODO
-      //    (incluido el header recién inyectado y el footer)
+      // 5. Re-engancha el selector de idioma: ÚNICO gestor del traductor.
+      //    Botón texto dual: cada palabra clicable cambia a SU idioma.
       if (langBtn) {
-        langBtn.addEventListener('click', () => {
-          const next = (localStorage.getItem('blynq_lang') || 'en') === 'en' ? 'es' : 'en';
-          localStorage.setItem('blynq_lang', next);
-          document.documentElement.lang = next;
-          langBtn.innerHTML = next === 'es' ? '🇪🇸 Español' : '🇺🇸 English';
-          document.querySelectorAll('[data-en][data-es]').forEach((el) => {
-            el.innerHTML = next === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+        langBtn.querySelectorAll('.lang-opt').forEach((opt) => {
+          opt.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const target = opt.dataset.lang;
+            const current = localStorage.getItem('blynq_lang') || 'en';
+            if (target === current) return;
+            localStorage.setItem('blynq_lang', target);
+            document.documentElement.lang = target;
+            syncLangButton(langBtn, target);
+            document.querySelectorAll('[data-en][data-es]').forEach((el) => {
+              el.innerHTML = target === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+            });
           });
         });
       }
     })
     .catch((err) => console.error('[include-header] No se pudo cargar el header:', err));
+
+  /* Sincroniza la marca visual del botón dual: bold + #124eb3 en el idioma activo */
+  function syncLangButton(btn, lang) {
+    btn.querySelectorAll('.lang-opt').forEach((opt) => {
+      opt.classList.toggle('lang-active', opt.dataset.lang === lang);
+    });
+  }
+})();
+
+/* Aplica el idioma guardado al cargar, también al FOOTER inyectado.
+   El footer puede llegar después del header (fetch paralelo), así que
+   se re-aplica el idioma cuando él termina de inyectarse. */
+(() => {
+  const applyLang = () => {
+    const lang = localStorage.getItem('blynq_lang') || 'en';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-en][data-es]').forEach((el) => {
+      el.innerHTML = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+    });
+    const btn = document.getElementById('lang-btn');
+    if (btn) btn.querySelectorAll('.lang-opt').forEach((opt) => {
+      opt.classList.toggle('lang-active', opt.dataset.lang === lang);
+    });
+  };
+
+  window.addEventListener('DOMContentLoaded', applyLang);
+  // Por si algún módulo inyecta contenido después de DOMContentLoaded
+  window.addEventListener('load', applyLang);
 })();

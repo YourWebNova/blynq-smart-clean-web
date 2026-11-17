@@ -11,12 +11,12 @@
 /* --------------------------------------------------------------------------
    Barra sticky con efecto glass
    -------------------------------------------------------------------------- */
-header {
+#include-header {
   position: sticky;
   top: 0;
   z-index: 1000;
   padding: 12px 0;
-  background-color: rgba(255, 255, 255, 0.92);
+  background-color: rgba(255, 255, 255, 1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border, #e2e8f0);
@@ -56,7 +56,7 @@ header .logo img {
 header nav ul {
   display: flex;
   align-items: center;
-  gap: 68px;
+  gap: 54px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -145,6 +145,29 @@ header .header-contact a svg {
   transform: translateY(-1px);
 }
 
+/* Selector de idioma texto dual: la palabra activa va en bold y azul,
+   la inactiva en gris. Ambas son clicables individualmente. */
+.lang-switcher .lang-opt {
+  color: var(--color-text-muted, #64748b);
+  font-weight: 400;
+  transition: color var(--transition-fast, 150ms ease);
+}
+
+.lang-switcher .lang-opt:hover {
+  color: var(--color-primary, #1d6fe9);
+}
+
+.lang-switcher .lang-opt.lang-active {
+  color: #124eb3;
+  font-weight: 700;
+}
+
+.lang-switcher .lang-sep {
+  color: var(--color-text-muted, #64748b);
+  font-weight: 400;
+  opacity: 0.6;
+}
+
 /* Botón Hamburguesa */
 .menu-toggle {
   display: none;
@@ -191,6 +214,18 @@ header .header-contact a svg {
 /* --------------------------------------------------------------------------
    RESPONSIVE MOBILE (< 992px): Drawer lateral
    -------------------------------------------------------------------------- */
+@media (min-width: 991px) and (max-width: 1279px) {
+header nav ul {
+    gap: 38px;
+}
+header nav ul li a {
+  font-size: 1rem;
+}
+ header nav.nav-menu {
+  gap: 1rem; 
+ }
+}
+
 @media (max-width: 991px) {
 
   header .boxer {
@@ -263,4 +298,9 @@ header .header-contact a svg {
     justify-content: center;
     padding: 12px 20px;
   }
+
+  .lang-switcher button {
+    margin-top: 1.5rem;
+    width: 100%;
+  }  
 }

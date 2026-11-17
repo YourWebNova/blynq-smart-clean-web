@@ -167,40 +167,10 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 
-// script para multi-idiomas
-document.addEventListener('DOMContentLoaded', () => {
-    const langBtn = document.getElementById('lang-btn');
-    if (!langBtn) return;
-
-    // Obtiene el idioma guardado o usa English por defecto
-    let currentLang = localStorage.getItem('blynq_lang') || 'en';
-
-    function updateContent(lang) {
-        const elements = document.querySelectorAll('[data-en][data-es]');
-        elements.forEach(el => {
-            if (lang === 'es') {
-                el.innerHTML = el.getAttribute('data-es');
-            } else {
-                el.innerHTML = el.getAttribute('data-en');
-            }
-        });
-
-        if (lang === 'es') {
-            langBtn.innerHTML = '🇪🇸 ES';
-            document.documentElement.lang = 'es';
-        } else {
-            langBtn.innerHTML = '🇺🇸 EN';
-            document.documentElement.lang = 'en';
-        }
-        localStorage.setItem('blynq_lang', lang);
-    }
-
-    // Aplicar al cargar la página
-    updateContent(currentLang);
-
-    // Cambiar idioma al hacer clic
-    langBtn.addEventListener('click', () => {
-        currentLang = currentLang === 'en' ? 'es' : 'en';
-        updateContent(currentLang);
-    });
-});
+/*
+   El selector de idioma ahora lo gestiona Home/include-header.js
+   (única fuente de verdad: el botón #lang-btn se inyecta con el header
+   dinámicamente, así que la lógica de traducción debe correr después
+   de la inyección). Eliminado para evitar el doble listener que
+   pisaba el estado del traductor con textos desactualizados.
+   ========================================================================== */
