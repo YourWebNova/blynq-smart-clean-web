@@ -228,6 +228,13 @@ header nav ul li a {
 
 @media (max-width: 991px) {
 
+  /* Recorta el drawer oculto (right: -100%) y cualquier desborde horizontal
+     en móvil. "clip" + position:relative NO rompe el sticky del header. */
+  body {
+    position: relative;
+    overflow-x: clip;
+  }
+
   header .boxer {
     display: flex;
     justify-content: space-between;
